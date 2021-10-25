@@ -22,14 +22,13 @@ def read(lst_cheltuieli, nr_apartament: int=None):
     :param nr_apartament: Nr apartament.
     :return: Cheltuiala cu nr-ul nr_apartament sau lsta cu toate cheltuielile, daca nr_apartament=None.
     '''
-    cheltuiala_cu_nr = None
+    cheltuiala_nr = None
     for cheltuiala in lst_cheltuieli:
         if get_nr_apartament(cheltuiala) == nr_apartament:
-            cheltuiala_cu_nr = cheltuiala
-    if cheltuiala_cu_nr:
-        return cheltuiala_cu_nr
+            cheltuiala_nr = cheltuiala
+    if cheltuiala_nr:
+        return cheltuiala_nr
     return lst_cheltuieli
-
 
 def update(lst_cheltuieli, new_cheltuiala):
     '''

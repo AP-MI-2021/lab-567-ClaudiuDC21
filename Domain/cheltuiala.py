@@ -46,7 +46,7 @@ def get_tipul(cheltuiala):
     '''
     Getter pentru tip.
     :param cheltuiala: Cheltuiala.
-    :return: Tipul cheltuielii.
+    :return: Tipul cheltuielii: intretinere, canal sau alte cheltuieli.
     '''
     return cheltuiala['tip']
 

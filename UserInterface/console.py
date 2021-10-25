@@ -49,6 +49,7 @@ def handle_show_all(cheltuieli):
 def handle_show_details(cheltuieli):
     nr_apartament = int(input('Dati numarul apartamentului pentru care doriti detalii: '))
     chelt = read(cheltuieli, nr_apartament)
+    print(f'Numarul apartamentului este: {get_nr_apartament(chelt)}')
     print(f'Suma ce trebuie cheltuita este: {get_suma(chelt)}')
     print(f'Data la care s-au generat costurile: {get_data(chelt)}')
     print(f'Tipul cheltuielii este: {get_tipul(chelt)}')
