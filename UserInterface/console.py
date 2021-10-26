@@ -2,6 +2,7 @@ import datetime
 
 from Domain.cheltuiala import creeaza_cheltuiala, get_str, get_nr_apartament, get_suma, get_data, get_tipul
 from Logic.crud import create, update, delete, read
+from Logic.delete_chelt import delete_all_costs_for_apartement
 
 
 def show_menu():
@@ -16,7 +17,7 @@ def read_date():
     year = int(date[0])
     month = int(date[1])
     day = int(date[2])
-    return datetime.date(year,month, day)
+    return datetime.date(year, month, day)
 
 
 def handle_add(cheltuieli):
@@ -32,13 +33,14 @@ def handle_modify(cheltuieli):
     suma = float(input('Dati noua suma: '))
     data = read_date()
     tip = input('Dati noul tip: ')
-    return update(cheltuieli, creeaza_cheltuiala(nr_apartament, suma, data, tip) )
+    return update(cheltuieli, nr_apartament, suma, data, tip)
 
 
 def handle_delete(cheltuieli):
     nr_apartament = int(input('Dati numarul apartamentului ce se a sterge: '))
     cheltuieli = delete(cheltuieli, nr_apartament)
     print('Stergerea a fost efectuata cu succes!')
+    return cheltuieli
 
 
 def handle_show_all(cheltuieli):
@@ -66,11 +68,11 @@ def handel_crud(cheltuieli):
 
         optiune = input('Alegeti optiunea: ')
         if optiune == '1':
-            handle_add(cheltuieli)
+            cheltuieli = handle_add(cheltuieli)
         elif optiune == '2':
-            handle_modify(cheltuieli)
+            cheltuieli = handle_modify(cheltuieli)
         elif optiune == '3':
-            handle_delete(cheltuieli)
+            cheltuieli = handle_delete(cheltuieli)
         elif optiune == 'a':
             handle_show_all(cheltuieli)
         elif optiune == 'd':
@@ -82,7 +84,6 @@ def handel_crud(cheltuieli):
     return cheltuieli
 
 
-
 def run_ui(cheltuieli):
     while True:
         show_menu()
@@ -91,7 +92,9 @@ def run_ui(cheltuieli):
         if optiune == '1':
             cheltuieli = handel_crud(cheltuieli)
         elif optiune == '2':
-            pass
+            nr_ap = int(input('Dati numarul apartamentului caruia i se vor sterge cheltuielile: '))
+            cheltuieli = delete_all_costs_for_apartement(cheltuieli, nr_ap)
+            print(f'Apartamentul cu numarul {nr_ap} a fost sters, neavand nicio cheltuiala! ')
         elif optiune == '3':
             pass
         elif optiune == '4':
