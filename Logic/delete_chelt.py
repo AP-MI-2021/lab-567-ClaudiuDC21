@@ -6,7 +6,7 @@ def delete_all_costs_for_apartement(lst_cheltuieli, nr_apartament):
     """
     Sterge toate cheltuielile pentru un apartament dat.
     :param lst_cheltuieli:  lista de cheltuieli.
-    :param nr_apartament: Numarul apartamentului.
+    :param id_apartament: ID-ul apartamentului.
     :return: Lista in care cheltuielile partamentului dat s-au sters.
     """
     new_list = []

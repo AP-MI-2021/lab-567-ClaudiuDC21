@@ -19,11 +19,9 @@ def test_create():
 
     assert c_new in new_cheltuieli
     assert len(new_cheltuieli) == len(cheltuieli) + 1
-    assert get_nr_apartament(read(cheltuieli, 12)) == 12
+    assert get_nr_apartament(read(cheltuieli, 1)) == 1
     assert get_suma(read(cheltuieli, 4)) == 342
-    assert get_data(read(cheltuieli, 5)) == 2019 - 5 - 28
-    assert get_tipul(read(cheltuieli, 1)) == 'intretinere'
-
+    assert get_tipul(read(cheltuieli, 5)) == 'intretinere'
 
 def test_read():
     cheltuieli = get_datas()
