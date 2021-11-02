@@ -1,12 +1,12 @@
 from Domain.cheltuiala import get_nr_apartament
-from Logic.crud import update
+from Logic.crud import update, read
 
 
 def delete_all_costs_for_apartement(lst_cheltuieli, nr_apartament):
     """
     Sterge toate cheltuielile pentru un apartament dat.
     :param lst_cheltuieli:  lista de cheltuieli.
-    :param id_apartament: ID-ul apartamentului.
+    :param nr_apartament: Nr-ul apartamentului.
     :return: Lista in care cheltuielile partamentului dat s-au sters.
     """
     new_list = []
