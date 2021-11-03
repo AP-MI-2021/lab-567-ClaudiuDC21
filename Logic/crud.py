@@ -20,7 +20,7 @@ def create(lst_cheltuieli, id_cheltuiala, nr_apartament, suma, data, tipul):
 
 def read(lst_cheltuieli, id_cheltuiala: int = None):
     """
-    Citeste o cheltuiala din "baza de date".
+    Citeste o cheltuiala din "baza de date" dupa id-ul cheltuielii.
     :param lst_cheltuieli: Lista de cheltuieli.
     :param id_cheltuiala: Id-ul cheltuielii.
     :return: Cheltuiala cu nr-ul nr_apartament sau lsta cu toate cheltuielile, daca nr_apartament=None.
@@ -33,6 +33,19 @@ def read(lst_cheltuieli, id_cheltuiala: int = None):
             cheltuiala_nr = cheltuiala
     if cheltuiala_nr:
         return cheltuiala_nr
+    return None
+
+
+def read_by_nr_apartament(lst_cheltuieli, nr_apartament):
+    """
+    Citeste o cheltuiala din "baza de date" dupa numarul apartamentului.
+    :param lst_cheltuieli: Lista de cheltuieli.
+    :param nr_apartament: Numarul apartamentului.
+    :return: Cheltuiala cu numarul apartamentului dat, respectiv None daca acesta nu exista.
+    """
+    for cheltuiala in lst_cheltuieli:
+        if get_nr_apartament(cheltuiala) == nr_apartament:
+            return cheltuiala
     return None
 
 

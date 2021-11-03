@@ -108,8 +108,7 @@ def handel_crud(cheltuieli):
 def delete_all_costs(cheltuieli):
     try:
         nr_ap = int(input('Dati numarul apartamentului caruia i se vor sterge cheltuielile: '))
-        cheltuieli = delete_all_costs_for_apartement(cheltuieli, nr_ap)
-        print(f'Cheltuieleile apartamentului cu numarul {nr_ap} au fost sterse! ')
+        return delete_all_costs_for_apartement(cheltuieli, nr_ap)
     except ValueError as ve:
         print('Eroare:  {ve}')
     return cheltuieli

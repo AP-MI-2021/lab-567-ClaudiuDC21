@@ -32,6 +32,13 @@ def test_read():
     assert read(cheltuieli, None) == cheltuieli
 
 
+def test_read_by_nr_apartament():
+    cheltuieli = get_datas()
+    some_c = cheltuieli[2]
+    assert read(cheltuieli, get_nr_apartament(some_c)) == some_c
+    assert read(cheltuieli, None) == cheltuieli
+
+
 def test_update():
     cheltuieli = get_datas()
     c_updated = creeaza_cheltuiala(314, 5, 1243.9, 2021 - 11 - 12, 'intretinere')
