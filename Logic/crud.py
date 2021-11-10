@@ -15,6 +15,7 @@ def create(lst_cheltuieli, id_cheltuiala, nr_apartament, suma, data, tipul):
     if read(lst_cheltuieli, id_cheltuiala) is not None:
         raise ValueError(f'Exista deja o cheltuiala cu id-ul {id_cheltuiala}')
     cheltuiala = creeaza_cheltuiala(id_cheltuiala, nr_apartament, suma, data, tipul)
+    lst_cheltuieli.append(cheltuiala)
     return lst_cheltuieli + [cheltuiala]
 
 

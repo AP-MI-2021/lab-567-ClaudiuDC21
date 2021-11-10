@@ -16,3 +16,19 @@ def delete_all_costs_for_apartement(lst_cheltuieli, nr_apartament):
         if get_nr_apartament(cheltuiala) != nr_apartament:
             new_list.append(cheltuiala)
     return new_list
+
+
+def add_costs_for_apartament(cheltuieli, lista):
+    """
+    Adauga inapoi cheltuielile ce au fost sterse la prima functionalitate.(pentru Undo)
+    :param cheltuieli: Lista cu cheltuieli ce trebuie adaugate.
+    :param lista_noua: Lista in care se vor adauga cheltuielile adaugate anterior.
+    :return: Lista in care cheltuielile au fost adaugate inapoi.
+    """
+    result = []
+    for cheltuiala in lista:
+        result.append(cheltuiala)
+    for cheltuiala_de_adaugat in cheltuieli:
+        result.append(cheltuiala_de_adaugat)
+    return result
+

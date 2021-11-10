@@ -6,6 +6,7 @@ from Logic.crud import read
 from Logic.functionalitate_1 import delete_all_costs_for_apartement
 from Logic.functionalitate_3 import the_biggest_chelt_for_every_type
 from Logic.functionalitate_4 import ordering_chelt_descending_by_amount
+from Logic.functionalitate_5 import show_montly_amount_for_each_apartament
 
 
 def get_datas():
@@ -15,6 +16,8 @@ def get_datas():
         creeaza_cheltuiala(313, 4, 342, datetime.date(2020, 12, 21), 'alte cheltuieli'),
         creeaza_cheltuiala(314, 1, 353, datetime.date(2019, 5, 28), 'intretinere')
     ]
+
+
 # Functionalitate 1 \/
 def test_delete_all_costs_for_apartement():
     cheltuieli = get_datas()
@@ -50,3 +53,11 @@ def test_ordering_chelt_descending_by_amount():
     assert get_id_cheltuiala(result[1]) == 313
     assert get_id_cheltuiala(result[2]) == 311
     assert get_id_cheltuiala(result[3]) == 312
+
+
+def test_show_montly_amount_for_each_apartament():
+    cheltuieli = get_datas()
+    result = show_montly_amount_for_each_apartament(cheltuieli)
+    assert result[1][2019][5] == 353
+    assert result[4][2020][12] == 342
+    assert result[12][2021][12] == 230
